@@ -1,33 +1,51 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {CleanWebpackPlugin} = require('clean-webpack-plugin');
-// const StyleLoader = require('style-loader');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ExtractTextWebpackPlugin = require('extract-text-webpack-plugin');
 
+let cssExtract = new ExtractTextWebpackPlugin('css/css.css');
+let lessExtract = new ExtractTextWebpackPlugin('css/less.css');
+let sassExtract = new ExtractTextWebpackPlugin('css/sass.css');
 
 module.exports = {
-    entry :{
-        main : './src/index.js'
+    entry: {
+        main: './src/index.js'
     },
-    output:{
+    output: {
         path: path.join(__dirname, 'dist'),
         filename: '[name].[hash:8].js'
     },
-    module:{
-        rules:[
+    module: {
+        rules: [
             {
                 test: /\.css$/,
-                loader: ['style-loader', 'css-loader']
-            },{
+                loader: cssExtract.extract({
+                    use:['css-loader', 'postcss-loader']
+                })
+                //loader: ['style-loader', 'css-loader']
+            }, {
+                test: /\.scss$/,
+                loader: sassExtract.extract({
+                    use: ['css-loader', 'sass-loader']
+                })
+                //loader: ['style-loader', 'css-loader', 'sass-loader']
+            }, {
+                test: /\.less$/,
+                loader: lessExtract.extract({
+                    use:['css-loader', 'less-loader']
+                })
+                // loader: ['style-loader', 'css-loader', 'less-loader']
+            }, {
                 test: /\.(png|jpg|gif|svg|bmp|eot|woff|woff2|ttf)/,
                 loader: {
-                    loader : 'url-loader',
+                    loader: 'url-loader',
                     options: {
-                        limit : 5 * 1024,
+                        limit: 5 * 1024,
                         outputPath: 'asset/'
                     }
                 }
-            },{
-                test:/\.(html|htm|ejs)/,
+            }, {
+                test: /\.(html|htm|ejs)/,
                 loader: 'html-withimg-loader'
             }
         ]
@@ -39,7 +57,10 @@ module.exports = {
             filename: 'index.html',
             title: 'hello-webpack',
             hash: true,
-        })
+        }),
+        cssExtract,
+        lessExtract,
+        sassExtract
     ],
     devServer: {
         contentBase: './dist',
@@ -47,5 +68,5 @@ module.exports = {
         port: 8002,
         compress: true,
     }
-        
+
 }
