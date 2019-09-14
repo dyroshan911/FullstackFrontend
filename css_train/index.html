@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        /* 样式 */
+        /* css 初始化 */
+        body {
+            background-color: #f3f5f7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            /* 清除内外边距 */
+        }
+
+        ul {
+            list-style: none;
+            /* 去除列表样式小点 */
+        }
+
+        .clearfix:before,
+        .clearfix:after {
+            /* 清除浮动 */
+            display: table;
+            content: "";
+        }
+
+        .clearfix:after {
+            clear: both;
+        }
+
+        .clearfix {
+            *zoom: 1;
+        }
+
+        a {
+            color: #050505;
+            text-decoration-line: none;
+        }
+
+        .container {
+            width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* 初始化结束 */
+
+        /* 页面头部 */
+        header {
+            height: 100px;
+            overflow: hidden;
+        }
+
+        nav {
+            width: 1366px;
+            height: 41px;
+            margin: 20px auto;
+        }
+
+        .log {
+            float: left;
+        }
+
+        .navbar {
+            float: left;
+            height: 41px;
+            line-height: 41px;
+            /* 行高可以继承 */
+            margin-left: 50px;
+        }
+
+        .navbar li {
+            float: left;
+        }
+
+        .navbar li a {
+            padding: 0 8px;
+            display: block;
+            /* a是行内元素是没有高度的，高需要转换块级 */
+        }
+
+        .navbar li a:hover {
+            border-bottom: 2px solid #00a4ff;
+        }
+
+        .search {
+            width: 410px;
+            height: 37px;
+            border: 1px solid #00a4ff;
+            float: right;
+        }
+
+        .search input[type=text] {
+            /* 属性选择器 */
+            width: 340px;
+            height: 37px;
+            padding-left: 20px;
+            border: none;
+            float: left;
+            /* 解决行内块元素之间的缝隙 */
+        }
+
+        .search input[type=submit] {
+            width: 50px;
+            height: 37px;
+            background: #00a4ff url('images/fa-search.png') center center no-repeat;
+            /* background-image: url('images/fa-earch.png'); */
+            /* background-color: #00a4ff; */
+            float: left;
+            cursor: pointer;
+        }
+
+        .person {
+            padding-left: 30px;
+            height: 41px;
+            float: right;
+            line-height: 41px;
+        }
+
+        .person a {
+            display: block;
+            float: left;
+            padding: 0 20px;
+        }
+
+        .username {
+            float: right;
+            display: block;
+            height: 100%;
+        }
+
+        .avator img {
+            vertical-align: middle;
+        }
+
+        /* banner start */
+        .banner {
+            height: 420px;
+            background-color: #1c036c;
+        }
+
+        .banner-in {
+            height: 420px;
+            background: url(images/banner2.png) 0 0 no-repeat;
+        }
+
+        .sliderbar {
+            height: 420px;
+            width: 190px;
+            background: rgba(0, 0, 0, 0.3);
+            /* 盒子背景半透明 */
+            float: left;
+        }
+
+        .sliderbar li a {
+            color: white;
+            font-size: 16px;
+            padding: 0 20px;
+            height: 45px;
+            display: block;
+            line-height: 45px;
+            /* 单行垂直居中，有了行高可以不用给高度 */
+        }
+
+        .sliderbar li a:hover {
+            color: #00a4ff;
+        }
+
+        .sliderbar .arrow {
+            float: right;
+            font-family: Arial, Helvetica, sans-serif;
+            /* 一般情况符号都用这个字体 */
+        }
+
+        .time-table {
+            width: 230px;
+            height: 300px;
+            background-color: white;
+            float: right;
+            margin: 50px 0;
+        }
+
+        .time-table dt {
+            background-color: #9bceea;
+            height: 50px;
+            width: 100%;
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+            /* 文字加粗 */
+            letter-spacing: 2px;
+            /* 文字间距 */
+            line-height: 50px;
+            text-align: center;
+            margin-bottom: 9px;
+        }
+
+        .time-table dd {
+            width: 190px;
+            height: 60px;
+            border-bottom: 1px #eaeaea solid;
+            box-sizing: border-box;
+            margin: 0 auto;
+            padding: 5px 0;
+        }
+        .time-table dd:last-child {
+            border-bottom: 0;
+        }
+        .time-table dd h1 {
+            font-size: 15px;
+            color: #4e4e4e;
+            font-weight: normal;
+        }
+        .time-table dd p {
+            font-size: 13px;
+            color: #dbdbdb;
+        }
+
+        .time-table dd a {
+            display: block;
+            margin-top: 5px;
+            width: 100%;
+            height: 40px;
+            text-align: center;
+            line-height: 40px;
+            border: 1px solid #00a4ff;
+            font-size: 20px;
+            color: #00a4ff;
+        }
+        .time-table dd a:hover {
+            background-color: #00a4ff;
+            color: white;
+        }
+
+        /* anner end */
+    </style>
+</head>
+
+<body>
+    <!-- 结构 -->
+    <header>
+        <nav>
+            <!-- log部分 -->
+            <div class="log">
+                <img src="images/logo.png" alt="">
+            </div>
+            <div class="navbar">
+                <ul>
+                    <li><a href="#">首页</a></li>
+                    <li><a href="#">课程</a></li>
+                    <li><a href="#">职业规划</a></li>
+                </ul>
+            </div>
+            <!-- 个人中心部分 -->
+            <div class="person">
+                <a href="#">个人中心</a>
+                <a href="#"><img src="images/alarmed.png" alt=""></a>
+
+                <a href="#" class="avator"><img src="images/avator.png" alt=""><span class="username">admin</span></a>
+            </div>
+            <!-- 搜索框部分 -->
+            <div class="search">
+                <form action="">
+                    <input type="text" placeholder="请输入关键字">
+                    <input type="submit" value="">
+                </form>
+            </div>
+        </nav>
+
+    </header>
+    <!-- banner部分 -->
+    <div class="banner">
+        <div class="banner-in container">
+            <!-- 侧边栏 -->
+            <div class="sliderbar">
+                <ul>
+                    <li><a href="#">前端开发 <span class="arrow">></span></a></li>
+                    <li><a href="#">前端开发 <span class="arrow">></span></a></li>
+                    <li><a href="#">前端开发 <span class="arrow">></span></a></li>
+                    <li><a href="#">前端开发 <span class="arrow">></span></a></li>
+                    <li><a href="#">前端开发 <span class="arrow">></span></a></li>
+                    <li><a href="#">前端开发 <span class="arrow">></span></a></li>
+                    <li><a href="#">前端开发 <span class="arrow">></span></a></li>
+                    <li><a href="#">前端开发 <span class="arrow">></span></a></li>
+                    <li><a href="#">前端开发 <span class="arrow">></span></a></li>
+                </ul>
+            </div>
+            <dl class="time-table">
+                <dt>我的课程表</dt>
+                <dd>
+                    <h1>继续学习 程序语言设计</h1>
+                    <p>正在学习-使用对象</p>
+                </dd>
+                <dd>
+                    <h1>继续学习 程序语言设计</h1>
+                    <p>正在学习-使用对象</p>
+                </dd>
+                <dd>
+                    <h1>继续学习 程序语言设计</h1>
+                    <p>正在学习-使用对象</p>
+                </dd>
+                <dd>
+                    <a href="#">全部课程</a>
+                </dd>
+            </dl>
+        </div>
+    </div>
+</body>
+
+</html>
