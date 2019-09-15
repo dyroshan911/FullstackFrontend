@@ -8,6 +8,7 @@ let lessExtract = new ExtractTextWebpackPlugin('css/less.css');
 let sassExtract = new ExtractTextWebpackPlugin('css/sass.css');
 
 module.exports = {
+    devtool: 'eval-source-map',
     entry: {
         main: './src/index.js'
     },
