@@ -35,5 +35,8 @@ module.exports = {
         host: 'localhost',
         port: 8002,
         compress: true,
-    }
+    },
+    resolve: {
+        extensions: ['.js', '.jsx','.json'],
+    },
 }

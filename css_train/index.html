@@ -234,8 +234,35 @@
             background-color: #00a4ff;
             color: white;
         }
+        /* banner end */
 
-        /* anner end */
+        /* recommend begin */
+        .recommend {
+            margin-top: 5px;
+            height: 50px;
+            background-color: white;
+            /* border: 1px solid #dcdee0; */
+            line-height: 50px;
+            box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3)
+        }
+        .recommend li {
+            float: left;
+        }
+        .recommend li a{
+            padding: 0 40px;
+            border-right: 1px solid #dcdee0;
+        }
+        .recommend li:last-child{
+            float: right;
+        }
+        .recommend li:last-child a{
+            border-right: none;
+            color: #00a4ff;
+        }
+        .recommend li a:hover {
+            color: #00a4ff;
+            cursor: pointer;
+        }
     </style>
 </head>
 
@@ -307,6 +334,17 @@
                 </dd>
             </dl>
         </div>
+    </div>
+    <!-- 精品推荐 -->
+    <div class="recommend container">
+        <ul>
+            <li><a href="#">精品推荐</a></li>
+            <li><a href="#">Jquery</a></li>
+            <li><a href="#">Spart</a></li>
+            <li><a href="#">MySql</a></li>
+            <li><a href="#">JavaWeb</a></li>
+            <li><a href="#">修改兴趣</a></li>
+        </ul>
     </div>
 </body>
 
