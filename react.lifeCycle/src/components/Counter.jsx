@@ -1,7 +1,24 @@
 import React from 'react';
 import ProTypes from 'prop-types';
 
-export default class Counter extends React.Component {
+// const {PureComponent} = React;
+class PureComponent extends React.Component {
+    shouldComponentUpdate(nextProps, nextState) {
+        //浅比较
+        for (let prop in nextProps) {
+            if (nextProps[prop] !== this.props[prop]) {
+                return true;
+            }
+        }
+        for (let prop in nextState) {
+            if (nextState[prop] !== this.state[prop]) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+export default class Counter extends PureComponent {
     static defaultProps = {
         count: 100
     }
@@ -21,6 +38,11 @@ export default class Counter extends React.Component {
 
     componentDidMount() {
         console.log('3.componentDidMount-->')
+    }
+
+    shouldComponentUpdate(nextProps, nextState) { //性能优化的重点
+        console.log('4.shouldComponentUpdate-->');
+        return true;
     }
 
     render() {
