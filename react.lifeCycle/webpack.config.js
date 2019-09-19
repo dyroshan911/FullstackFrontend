@@ -7,6 +7,7 @@ module.exports = {
         path: path.resolve('dist'),
         filename: 'bundle.js',
     },
+    devtool:'source-map',
     module: {
         rules:[
             {
@@ -21,6 +22,9 @@ module.exports = {
                     }
                 ],
                 exclude: /node_modules/
+            },{
+                test: /\.css$/,
+                loader: ['style-loader', 'css-loader']
             }
         ]
     },
@@ -30,12 +34,12 @@ module.exports = {
             filename: 'index.html'
         })
     ],
-    devServer: {
-        contentBase: './dist',
-        host: 'localhost',
-        port: 8002,
-        compress: true,
-    },
+    // devServer: {
+    //     contentBase: './dist',
+    //     host: 'localhost',
+    //     port: 8002,
+    //     compress: true,
+    // },
     resolve: {
         extensions: ['.js', '.jsx','.json'],
     },

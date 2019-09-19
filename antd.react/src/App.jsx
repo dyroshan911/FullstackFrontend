@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import Button from 'antd/es/button';
 import './App.css';
 
 class App extends Component {
   render() {
+    console.log(this.props.children)
     return (
-      <div className="App">
-        <Button type="primary">Button</Button>
+      <div>
+        {this.props.children}
       </div>
     );
   }
