@@ -1,0 +1,53 @@
+{
+	"import module": {
+		"prefix": "daoru",
+		"body": [
+			"import $2 from '$1';",
+		],
+		"description": "import module"
+	},
+	"require module": {
+		"prefix": "require",
+		"body": [
+			"let $1 = require('$2');",
+		],
+		"description": "require module"
+	},
+	"react comopnent": {
+		"prefix": "r-component",
+		"body": [
+			"import React from 'react';",
+			"\t",
+			"class $1 extends React.Component {",
+				"\tconstructor(props) {",
+					"\t\tsuper(props);",
+				"\t}",
+				"\t",
+				"\trender() {",
+					"\t\treturn <div>",
+					"\t\t</div>",
+				"\t}",
+			"}"
+		]
+	},
+	"react-redux comopnent": {
+		"prefix": "rr-component",
+		"body": [
+			"import React from 'react';",
+			"import { connect } from 'react-redux';",
+			"\n",
+			"class $1 extends React.Component {",
+				"\tconstructor(props) {",
+					"\t\tsuper(props);",
+				"\t}",
+				"\t",
+				"\trender() {",
+					"\t\treturn <div>",
+					"\t\t</div>",
+				"\t}",
+			"}",
+			"\n",
+			"export default connect()($1);"
+		]
+	}
+}
