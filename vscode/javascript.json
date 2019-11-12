@@ -49,5 +49,12 @@
 			"\n",
 			"export default connect()($1);"
 		]
+	}, 
+	"export default module": {
+		"prefix": "rdaochu",
+		"body": [
+			"export default $1;"
+		],
+		"description": "export default module"
 	}
 }
