@@ -2,14 +2,14 @@
 	"import module": {
 		"prefix": "daoru",
 		"body": [
-			"import $2 from '$1';",
+			"import $2 from '$1';"
 		],
 		"description": "import module"
 	},
 	"require module": {
 		"prefix": "require",
 		"body": [
-			"let $1 = require('$2');",
+			"let $1 = require('$2');"
 		],
 		"description": "require module"
 	},
