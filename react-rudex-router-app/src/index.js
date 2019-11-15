@@ -27,7 +27,7 @@ ReactDOM.render(<Provider store={store}>
                                 <Route path="/page1/page1-1">
                                     <Page1_1 />
                                 </Route>
-                                <Route path="/page1/page1-2">
+                                <Route path="/page1/page1-2/:test">
                                     <Page1_2 />
                                 </Route>
                                 <Redirect to="/page1/page1-1"></Redirect>

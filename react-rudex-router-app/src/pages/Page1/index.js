@@ -15,7 +15,10 @@ class Page1 extends React.Component {
                     <NavLink to='/page1/page1-1'>Page1-1</NavLink>
                 </li>
                 <li>
-                    <NavLink to='/page1/page1-2'>Page1-2</NavLink>
+                    <NavLink to='/page1/page1-2/test'>Page1-2</NavLink>
+                </li>
+                <li>
+                    <NavLink to='/page1/page1-2/ssss'>Page1-3</NavLink>
                 </li>
             </ul>
             {this.props.children}

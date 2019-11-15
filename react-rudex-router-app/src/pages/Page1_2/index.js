@@ -1,17 +1,17 @@
 import React from 'react';
-import { connect } from 'react-redux';
+import { connect } from "react-redux";
+import { useParams } from "react-router-dom";
 
 
-class Page1_2 extends React.Component {
-    constructor(props) {
-        super(props);
-    }
+function Page1_2(props) {
+    let { test } = useParams();
+    console.log(props);
     
-    render() {
-        return <div>
-            这里是page1-2
-        </div>
-    }
+
+    return <div>
+        这里是page1-2 <br />
+        param = {test}
+    </div>
 }
 
 

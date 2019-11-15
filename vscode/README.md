@@ -7,3 +7,9 @@
 
 ## npm 工具
 - rimraf 强制删除文件夹
+
+## 常用网站
+- jsbin js代码测试
+- http://jsonplaceholder.typicode.com/
+
+- redux-devtools-extions

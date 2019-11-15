@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/public/bootstrap/css/bootstrap.min.css">
+    <title>新闻</title>
+</head>
+
+<body>
+    <div class="contianer">
+        <div class="row">
+            <div class="col-md">
+                <div class="card">
+                    <div class="card-header">
+                        新闻列表
+                    </div>
+                    <div class="card-body">
+                        <ul class="list-group">
+                            <% news.forEach(item => { %>
+                            <li class="list-group-item">
+                                <a target="blank" href=<%=item.url%>><%=item.title%></a>
+                                <span style="float:right"><%=item.time%></span>
+                            </li>
+                            <% })%>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
