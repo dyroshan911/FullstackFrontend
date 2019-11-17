@@ -17,7 +17,7 @@ class BaseController extends Controller {
     error(error) {
         console.error(error);
         this.ctx.body = {
-            code: 0,
+            code: 1,
             error
         }
     }

@@ -13,3 +13,4 @@
 - http://jsonplaceholder.typicode.com/
 
 - redux-devtools-extions
+- mongod --dbpath /Users/daiyu/Database/mongo

@@ -8,10 +8,17 @@ class UsersController extends BaseController {
    */
   async signup() {
     const { ctx } = this;
+    let user = ctx.request.body;
     try {
-      let user = ctx.request.body;
-      user =  await ctx.model.User.create(user);
-      this.success(user);
+      let doc = await ctx.model.User.findOne({
+        username: user.username
+      });
+      if (doc) {
+        this.error('用户名已经存在');
+      } else {
+        user = await ctx.model.User.create(user);
+        this.success(user);
+      }
     } catch (error) {
       this.error(error);
     }
@@ -20,6 +27,20 @@ class UsersController extends BaseController {
   /**
    * 登录
    */
+  async signin() {
+    const { ctx } = this;
+    let user = ctx.request.body;
+    try {
+      let doc = await ctx.model.User.findOne(user);
+      if (doc) {
+        this.success(doc);
+      } else {
+        this.error('登陆失败');
+      }
+    } catch (error) {
+      this.error(error);
+    }
+  }
 
   /**
    * 获取用户列表
@@ -27,7 +48,7 @@ class UsersController extends BaseController {
   async get_list() {
     const { ctx } = this;
     try {
-      let users =  await ctx.model.User.find();
+      let users = await ctx.model.User.find();
       this.success(users);
     } catch (error) {
       this.error(error);
