@@ -33,7 +33,8 @@ class UsersController extends BaseController {
     try {
       let doc = await ctx.model.User.findOne(user);
       if (doc) {
-        this.success(doc);
+        ctx.session.user = doc;
+        this.success('登录成功');
       } else {
         this.error('登陆失败');
       }
@@ -42,6 +43,15 @@ class UsersController extends BaseController {
     }
   }
 
+  /**
+   * 退出登录
+   */
+  async signout() {
+    const {ctx} = this;
+    this.user = null;
+    ctx.session.user = null;
+    this.success('登录成功');
+  }
   /**
    * 获取用户列表
    */
