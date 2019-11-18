@@ -11,7 +11,7 @@ class Home extends React.Component {
 
         return <div className='home-page'>
             <div className='login-form'>
-                <h1>欢迎光临ROSHAN BLOG</h1>
+                <h1>欢迎光临Roshan's Blog</h1>
                 <LoginForm></LoginForm>
             </div>
         </div>
