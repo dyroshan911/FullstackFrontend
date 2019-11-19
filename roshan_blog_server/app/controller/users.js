@@ -17,7 +17,8 @@ class UsersController extends BaseController {
         this.error('用户名已经存在');
       } else {
         user = await ctx.model.User.create(user);
-        this.success(user);
+        ctx.session.user = doc;
+        this.success('注册成功');
       }
     } catch (error) {
       this.error(error);

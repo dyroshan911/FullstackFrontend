@@ -2,12 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import Home from './pages/home'
-function Admin(){
-    return <div>
-        Admin
-    </div>
-}
-
+import Admin from './pages/admin'
 
 class Routers extends React.Component {
     constructor(props) {

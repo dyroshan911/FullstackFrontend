@@ -18,7 +18,9 @@ class Home extends React.Component {
                         service.index();
                         console.log(user);
                         service[isSignup ? 'signup' : 'signin'](user).then(data => {
-                            console.log(user);
+                            if (data.code === 0) {
+                                this.props.history.push('/admin');
+                            }
                         })
                     }
                 }></UserForm>
@@ -86,7 +88,7 @@ class UserForm extends React.Component {
                 <Form.Item>
                     <Button type="primary" htmlType="submit" className="login-from-button" > 登录 </Button>
                 </Form.Item>
-                <a onClick={() => this.setState({ isSignup: !this.state.isSignup })}>{this.state.isSignup ? '已有账号?直接登录' : '没有账号?立即注册'}</a>
+                <a style={{float: "right"}} onClick={() => this.setState({ isSignup: !this.state.isSignup })}>{this.state.isSignup ? '已有账号?直接登录' : '没有账号?立即注册'}</a>
             </Form>
         )
     }
