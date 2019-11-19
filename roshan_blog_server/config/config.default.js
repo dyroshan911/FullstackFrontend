@@ -20,8 +20,10 @@ module.exports = appInfo => {
 
   config.security = {
     csrf: {
-      enable: false //开始时使用postman 暂时关闭
-    }
+      enable: false, //开始时使用postman 暂时关闭
+      ignoreJSON: true
+    },
+    domainWhiteList: [ 'http://localhost:3000' ],
   }
 
   const userConfig = {
@@ -32,6 +34,11 @@ module.exports = appInfo => {
         url: 'mongodb://127.0.0.1/roshan_blog',
         options: {},
       }
+    },
+    cors: {
+      origin: ctx => ctx.get('origin'),
+      credentials: true,
+      allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
     }
   };
 

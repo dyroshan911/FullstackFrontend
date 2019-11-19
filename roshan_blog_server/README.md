@@ -1,33 +1,28 @@
-# hello-egg
-
-hello
-
-## QuickStart
-
-<!-- add docs here for user -->
-
-see [egg docs][egg] for more detail.
-
-### Development
-
+## cors 配置 
 ```bash
-$ npm i
-$ npm run dev
-$ open http://localhost:7001/
+cnpm install egg-cors
 ```
-
-### Deploy
-
-```bash
-$ npm start
-$ npm stop
+------
+**add plugin**
+```javascript
+cors: {
+    enable: true,
+    package: 'egg-cors',
+}
 ```
-
-### npm scripts
-
-- Use `npm run lint` to check code style.
-- Use `npm test` to run unit test.
-- Use `npm run autod` to auto detect dependencies upgrade, see [autod](https://www.npmjs.com/package/autod) for more detail.
-
-
-[egg]: https://eggjs.org
+------
+**add config**
+```javascript
+config.security = {
+    csrf: {
+        enable: false, //开始时使用postman 暂时关闭
+        ignoreJSON: true
+    },
+    domainWhiteList: [ 'http://localhost:3000' ],
+}
+config.cors = {
+    origin: ctx => ctx.get('origin'),
+    credentials: true,
+    allowMethods: 'GET,HEAD,PUT,POST,DELETE,PATCH'
+}
+```
