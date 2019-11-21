@@ -8,7 +8,7 @@ module.exports = app => {
   router.get('/api/user', controller.users.get_list);
   router.post('/api/user/signup', controller.users.signup);
   router.post('/api/user/signin', controller.users.signin);
-  router.post('/api/user/signout', controller.users.signout);
+  router.get('/api/user/signout', controller.users.signout);
   // router.get('/news', controller.news.index);
 
   router.resources('categories', '/api/categories', controller.categories); //文章分类

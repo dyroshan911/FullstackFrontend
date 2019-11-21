@@ -5,3 +5,7 @@ this project from create-react-app
 - cnpm i react-app-rewired customize-cra -S
 - cnpm i babel-plugin-import -D
 - cnpm i react-router-dom redux react-redux
+
+
+## 权限控制
+- jwt(token)

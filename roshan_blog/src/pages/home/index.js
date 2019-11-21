@@ -11,19 +11,20 @@ class Home extends React.Component {
     render() {
 
         return <div className='home-page'>
-            <div className='login-form'>
+            <div className='login-form' ref={ref => this.loginFormRef = ref}>
                 <h1>欢迎光临Roshan's Blog</h1>
                 <UserForm onSubmit={
                     (isSignup, user) => {
                         service.index();
-                        console.log(user);
                         service[isSignup ? 'signup' : 'signin'](user).then(data => {
                             if (data.code === 0) {
-                                this.props.history.push('/admin');
+                                sessionStorage.setItem('username', data.data.username);
+                                this.props.history.replace('/admin');
+                                console.log(data);
                             }
                         })
                     }
-                }></UserForm>
+                } parent={this}></UserForm>
             </div>
         </div>
     }
@@ -49,7 +50,7 @@ class UserForm extends React.Component {
     }
 
     render() {
-        const { form: { getFieldDecorator, validateFieldsAndScroll }, onSubmit } = this.props;
+        const { form: { getFieldDecorator, validateFieldsAndScroll, resetFields }, onSubmit, parent } = this.props;
         return (
             <Form onSubmit={(e) => {
                 e.preventDefault(); //阻止默认事件
@@ -62,7 +63,7 @@ class UserForm extends React.Component {
                 <Form.Item>
                     {
                         getFieldDecorator('username', {
-                            rules: [{ validator: this.checkUsername }, { required: true, message: '请输入手机号' }]
+                            // rules: [{ validator: this.checkUsername }, { required: true, message: '请输入手机号' }]
                         })(<Input prefix={<Icon type="user" style={{ color: 'rgba(0,0,0,.25)' }} />} placeholder="请输入手机号" />)
                     }
                 </Form.Item>
@@ -86,9 +87,17 @@ class UserForm extends React.Component {
                     }
                 </Form.Item>
                 <Form.Item>
-                    <Button type="primary" htmlType="submit" className="login-from-button" > 登录 </Button>
+                    <Button type="primary" htmlType="submit" className="login-from-button" > {this.state.isSignup ? '注册' : '登录'} </Button>
                 </Form.Item>
-                <a style={{float: "right"}} onClick={() => this.setState({ isSignup: !this.state.isSignup })}>{this.state.isSignup ? '已有账号?直接登录' : '没有账号?立即注册'}</a>
+                <a style={{float: "right"}} onClick={() => {
+                    resetFields();
+                    parent.loginFormRef.classList.add('bounceInTop');
+                    this.setState({ isSignup: !this.state.isSignup });
+                    setTimeout(() => {
+                        parent.loginFormRef.classList.remove('bounceInTop');
+                    }, 500);
+                    
+            }}>{this.state.isSignup ? '已有账号?直接登录' : '没有账号?立即注册'}</a>
             </Form>
         )
     }

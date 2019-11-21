@@ -24,3 +24,6 @@ res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Content
 - http-proxy
 - nginx
 - websocket
+
+www.segmentfault.com.haozi.me
+白帽子讲weba安全

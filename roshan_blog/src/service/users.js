@@ -10,6 +10,10 @@ function signup(data) {
     return post(`${ENTITY}/signup`, data);
 }
 
+function signout() {
+    return get(`${ENTITY}/signout`);
+}
+
 function index() {
     return get(ENTITY);
 }
@@ -17,5 +21,6 @@ function index() {
 export default {
     signin,
     signup,
+    signout,
     index
 }

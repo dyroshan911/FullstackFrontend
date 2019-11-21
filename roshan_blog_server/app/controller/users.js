@@ -16,9 +16,9 @@ class UsersController extends BaseController {
       if (doc) {
         this.error('用户名已经存在');
       } else {
-        user = await ctx.model.User.create(user);
+        await ctx.model.User.create(user);
         ctx.session.user = doc;
-        this.success('注册成功');
+        this.success(user);
       }
     } catch (error) {
       this.error(error);
@@ -35,7 +35,7 @@ class UsersController extends BaseController {
       let doc = await ctx.model.User.findOne(user);
       if (doc) {
         ctx.session.user = doc;
-        this.success('登录成功');
+        this.success(user);
       } else {
         this.error('登陆失败');
       }
@@ -49,9 +49,9 @@ class UsersController extends BaseController {
    */
   async signout() {
     const {ctx} = this;
-    this.user = null;
+    // this.user = null;
     ctx.session.user = null;
-    this.success('登录成功');
+    this.success('退出成功!');
   }
   /**
    * 获取用户列表
