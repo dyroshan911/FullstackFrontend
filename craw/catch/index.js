@@ -37,4 +37,22 @@ exports.tagLsit = function (uri) {
     })
 }
 
-exports.tagLsit('https://juejin.im/subscribe/all');
+exports.articlesList = function(uri) {
+    let options = {
+        uri,
+        transform: (body) => {
+            return cheerio.load(body);
+        }
+    }
+    request(options).then($ => {
+        let articles = [];
+        $('.item .title').each((i, item) => {
+            let article = $(item);
+            let title =  article.text();
+            console.log(title);
+        })
+    })
+}
+
+// exports.tagLsit('https://juejin.im/subscribe/all');
+exports.articlesList('https://juejin.im/tag/%E5%89%8D%E7%AB%AF');
