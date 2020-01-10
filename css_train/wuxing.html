@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+    #star {
+        width: 0;
+        height: 0;
+        border-top: 0;
+        border-bottom: 70px solid red;
+        border-left: 100px solid transparent;
+        border-right: 100px solid transparent;
+        margin: 100px auto; 
+        transform: rotate(35deg);
+        position: relative;
+        
+    }
+    #star::before {
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 0;
+        border-bottom: 70px solid red;
+        border-left: 100px solid transparent;
+        border-right: 100px solid transparent;
+        position: absolute;
+        transform: rotate(-70deg);
+        top: 3px;
+        left: -105px;
+        /* left: 0; */
+        /* margin: 100px auto; */
+    }
+
+    #star::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 0;
+        border-bottom: 80px solid red;
+        border-left: 30px solid transparent;
+        border-right: 30px solid transparent;
+        position: absolute;
+        transform: rotate(-35deg);
+        left: -60px;
+        top: -45px;
+    }
+</style>    
+<body>
+    <div id="star"></div>
+</body>
+</html>

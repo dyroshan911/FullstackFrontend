@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    #box {
+        background-color: black;
+        position: relative;
+        width: 400px;
+        height: 400px;
+    }
+
+    #box1 {
+        width: 200px;
+        height: 200px;
+        background-color: blue;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        margin: auto;
+    }
+    #box-css3 {
+        background-color: red;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 500px;
+        height: 500px;
+    }
+
+    #box1-css3 {
+        border-radius: 50%;
+        width: 200px;
+        height: 200px;
+        background-color: yellow;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    #box1-css3:hover {
+        width: 250px;
+        height: 250px;
+    }
+</style>
+
+<body>
+    <div id="box">
+        <div id="box1"></div>
+    </div>
+    <div id="box-css3">
+        <div id="box1-css3"></div>
+    </div>
+</body>
+
+</html>

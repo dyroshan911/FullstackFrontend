@@ -14,3 +14,8 @@
 
 - redux-devtools-extions
 - mongod --dbpath /Users/daiyu/Database/mongo
+
+- 样式模板
+- https://semantic-ui.com/introduction/getting-started.html
+
+\\172.21.1.13\netlogon\cd_logon.bat

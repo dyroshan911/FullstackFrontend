@@ -5,3 +5,7 @@
 4. rgba
 5. transform
 6. 动画 transition animation
+7. 盒子模型(box-sizing)
+    - width height padding  border margin
+    - w3c默认 content-box
+    - css3新增 border-box
