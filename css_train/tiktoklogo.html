@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <link rel="stylesheet" href="tiktoklogo.css"> -->
+    <style>
+        body {
+            background: #000;
+            overflow: hidden;
+        }
+
+        .j-container {
+            width: 200px;
+            position: relative;
+            margin: 100px auto;
+            /* filter: contrast(150%) brightness(110%); */
+        }
+
+        .j {
+            width: 47px;
+            height: 218px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-color: #24f6f0;
+        }
+
+        .j::before {
+            position: absolute;
+            content: '';
+            width: 100px;
+            height: 100px;
+            border: 47px solid #24f6f0;
+            border-radius: 50%;
+            border-top: 47px solid transparent;
+            top: 121px;
+            left: -147px;
+            transform: rotate(45deg);
+        }
+
+        .j::after {
+            content: '';
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            border: 40px solid #24f6f0;
+            border-right: 40px solid transparent;
+            border-top: 40px solid transparent;
+            border-left: 40px solid transparent;
+            top: -110px;
+            right: -183px;
+            border-radius: 100%;
+            transform: rotate(45deg);
+        }
+
+        .j:last-child {
+            left: 10px;
+            top: 10px;
+            background: #fe2d52;
+            z-index: 100;
+            mix-blend-mode: lighten;
+        }
+
+        .j:last-child::before {
+            border: 47px solid #fe2d52;
+            border-top: 47px solid transparent;
+        }
+
+        .j:last-child::after {
+            border-bottom: 40px solid #fe2d52;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="j-container">
+        <div class="j">
+        </div>
+        <div class="j">
+        </div>
+    </div>
+</body>
+
+</html>
